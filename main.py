@@ -1,9 +1,9 @@
 import tiktoken
 import torch
 import torch.nn as nn
-from Gpt/GPTModel import GPTModel
-from GenTxt/generate_text_simple import generate_text_simple
-from GenTxt/print_gradients import print_gradients
+import sys
+from Gpt.GPTModel import GPTModel
+from GenTxt.generate_text_simple import generate_text_simple
 
 GPT_CONFIG_124M = {
     "vocab_size": 50257, # Vocabulary size
