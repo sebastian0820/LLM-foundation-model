@@ -1,10 +1,9 @@
 import tiktoken
 import torch
-import torch.nn as nn
-import sys
 from Gpt.GPTModel import GPTModel
 from GenTxt.generate_text_simple import generate_text_simple
 
+tokenizer = tiktoken.get_encoding("gpt2")
 GPT_CONFIG_124M = {
     "vocab_size": 50257, # Vocabulary size
     "context_length": 1024, # Context length
@@ -14,8 +13,7 @@ GPT_CONFIG_124M = {
     "drop_rate": 0.1, # Dropout rate
     "qkv_bias": False # Query-Key-Value bias
 }
-tokenizer = tiktoken.get_encoding("gpt2")
-torch.manual_seed(123)
+torch.manual_seed(123)          #set randomization seed to make predictions reproducible
 model = GPTModel(GPT_CONFIG_124M)
 
 start_context = "Hello, I am a"
