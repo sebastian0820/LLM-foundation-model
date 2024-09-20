@@ -16,7 +16,7 @@ GPT_CONFIG_124M = {
 torch.manual_seed(123)          #set randomization seed to make predictions reproducible
 model = GPTModel(GPT_CONFIG_124M)
 
-start_context = "Hello, I am a"
+start_context = "Every effort moves you"
 encoded = tokenizer.encode(start_context)
 encoded_tensor = torch.tensor(encoded).unsqueeze(0)
 model.eval() #A
