@@ -1,6 +1,7 @@
 
 import sys
 import os
+import matplotlib.pyplot as plt
 # Add the parent directory of the current file to sys.path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -102,7 +103,7 @@ def train_model_simple(model, train_loader, val_loader, optimizer, device, num_e
         generate_and_print_sample(model, train_loader.dataset.tokenizer, device, start_context)
     return train_losses, val_losses, track_tokens_seen
 
-import matplotlib.pyplot as plt
+
 def plot_losses(epochs_seen, tokens_seen, train_losses, val_losses):
     fig, ax1 = plt.subplots(figsize=(5, 3))
     ax1.plot(epochs_seen, train_losses, label="Training loss")
@@ -174,3 +175,4 @@ token_ids = generate_text_simple(
     context_size=GPT_CONFIG_124M["context_length"]
 )
 print("Output text:\n", token_ids_to_text(token_ids, tokenizer))
+
